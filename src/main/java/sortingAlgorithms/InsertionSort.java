@@ -2,6 +2,10 @@ package sortingAlgorithms;
 
 public class InsertionSort implements SortingClass{
 
+    public InsertionSort() {
+        Counter.count++;
+    }
+
     @Override
     public void sort(int[] array) {
         int temp;

@@ -2,6 +2,10 @@ package sortingAlgorithms;
 
 public class SelectionSort implements SortingClass {
 
+    public SelectionSort() {
+        Counter.count++;
+    }
+
     @Override
     public void sort(int[] array) {
         int temp;

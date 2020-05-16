@@ -1,8 +1,10 @@
 package sortingAlgorithms;
 
-import java.util.Arrays;
-
 public class BubbleSort implements SortingClass{
+
+    public BubbleSort() {
+        Counter.count++;
+    }
 
     @Override
     public void sort(int[] array) {
@@ -16,6 +18,5 @@ public class BubbleSort implements SortingClass{
                 }
             }
         }
-//        Arrays.stream(array).forEach(System.out::println);
     }
 }

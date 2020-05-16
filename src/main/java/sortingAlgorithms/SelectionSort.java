@@ -1,27 +1,29 @@
 package sortingAlgorithms;
 
-public class SelectionSort implements SortingClass {
+public class SelectionSort extends SortingClass {
 
-    public SelectionSort() {
-        Counter.count++;
+    public SelectionSort(int[] array) {
+        super(array);
     }
 
     @Override
     public void sort(int[] array) {
+        int[] copiedArray = new int[array.length];
+        System.arraycopy(array,0,copiedArray,0,array.length);
         int temp;
-        for (int lastUnsortedIndex = array.length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--) {
+        for (int lastUnsortedIndex = copiedArray.length - 1; lastUnsortedIndex > 0; lastUnsortedIndex--) {
             int indexWithLargestValue = 0;
             for (int currentIndex = 1; currentIndex <= lastUnsortedIndex; currentIndex++) {
-                if (array[currentIndex] > array[indexWithLargestValue]) {
+                if (copiedArray[currentIndex] > copiedArray[indexWithLargestValue]) {
                     indexWithLargestValue = currentIndex;
                 }
             }
             if (indexWithLargestValue == lastUnsortedIndex) {
                 continue;
             }
-            temp = array[indexWithLargestValue];
-            array[indexWithLargestValue] = array[lastUnsortedIndex];
-            array[lastUnsortedIndex] = temp;
+            temp = copiedArray[indexWithLargestValue];
+            copiedArray[indexWithLargestValue] = copiedArray[lastUnsortedIndex];
+            copiedArray[lastUnsortedIndex] = temp;
         }
     }
 }

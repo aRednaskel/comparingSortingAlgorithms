@@ -1,26 +1,29 @@
 package sortingAlgorithms;
 
-public class ShellSort implements SortingClass {
+public class ShellSort extends SortingClass {
 
-    public ShellSort() {
-        Counter.count++;
+    public ShellSort(int[] array) {
+        super(array);
     }
 
     @Override
     public void sort(int[] array) {
-        for (int gap = array.length / 2; gap > 0; gap /= 2) {
+        int[] copiedArray = new int[array.length];
+        System.arraycopy(array,0,copiedArray,0,array.length);
+        for (int gap = copiedArray.length / 2; gap > 0; gap /= 2) {
 
-            for (int sortingIndex = gap; sortingIndex < array.length; sortingIndex++) {
-                int newElement = array[sortingIndex];
+            for (int sortingIndex = gap; sortingIndex < copiedArray.length; sortingIndex++) {
+                int newElement = copiedArray[sortingIndex];
 
                 int currentIndex = sortingIndex;
 
-                while (currentIndex >= gap && array[currentIndex - gap] > newElement) {
-                    array[currentIndex] = array[currentIndex - gap];
+                while (currentIndex >= gap && copiedArray[currentIndex - gap] > newElement) {
+                    copiedArray[currentIndex] = copiedArray[currentIndex - gap];
                     currentIndex -= gap;
                 }
-                array[currentIndex] = newElement;
+                copiedArray[currentIndex] = newElement;
             }
         }
     }
+
 }

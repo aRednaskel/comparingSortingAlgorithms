@@ -1,21 +1,23 @@
 package sortingAlgorithms;
 
-public class InsertionSort implements SortingClass{
+public class InsertionSort extends SortingClass{
 
-    public InsertionSort() {
-        Counter.count++;
+    public InsertionSort(int[] array) {
+        super(array);
     }
 
     @Override
     public void sort(int[] array) {
+        int[] copiedArray = new int[array.length];
+        System.arraycopy(array,0,copiedArray,0,array.length);
         int temp;
-        for (int firstUnsortedIndex = 1; firstUnsortedIndex < array.length; firstUnsortedIndex++) {
-            temp = array[firstUnsortedIndex];
+        for (int firstUnsortedIndex = 1; firstUnsortedIndex < copiedArray.length; firstUnsortedIndex++) {
+            temp = copiedArray[firstUnsortedIndex];
             int currentIndex;
-            for (currentIndex = firstUnsortedIndex; currentIndex > 0 && array[currentIndex - 1] > temp; currentIndex--) {
-                array[currentIndex] = array[currentIndex - 1];
+            for (currentIndex = firstUnsortedIndex; currentIndex > 0 && copiedArray[currentIndex - 1] > temp; currentIndex--) {
+                copiedArray[currentIndex] = copiedArray[currentIndex - 1];
             }
-            array[currentIndex] = temp;
+            copiedArray[currentIndex] = temp;
         }
     }
 }

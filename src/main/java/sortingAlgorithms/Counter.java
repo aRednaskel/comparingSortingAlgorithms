@@ -1,6 +1,6 @@
 package sortingAlgorithms;
 
-public final class Counter {
+final class Counter {
 
-    public static int count;
+    static int count;
 }

@@ -3,6 +3,7 @@ import sortingAlgorithms.*;
 import java.time.LocalTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Random;
+import java.util.List;
 
 public class Main {
 
@@ -20,6 +21,7 @@ public class Main {
         InsertionSort insertionSort = new InsertionSort(intArray);
         ShellSort shellSort = new ShellSort(intArray);
         MergeSort mergeSort = new MergeSort(intArray);
+        CountingSort countingSort = new CountingSort(intArray, intArray.length);
 
         LocalTime start = LocalTime.now();
 
@@ -28,12 +30,14 @@ public class Main {
         selectionSort.start();
         insertionSort.start();
         shellSort.start();
+        countingSort.start();
 
         bubbleSort.join();
         selectionSort.join();
         shellSort.join();
         insertionSort.join();
         mergeSort.join();
+        countingSort.join();
 
         LocalTime end = LocalTime.now();
 
